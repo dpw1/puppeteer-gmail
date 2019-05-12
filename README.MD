@@ -16,7 +16,9 @@ Puppeteer Gmail is a simple tool to automate e-mail sending within the Gmail web
 
 Install dependencies using npm.
 
+```
 npm install
+```
 
 ### Setup your account
 
@@ -56,3 +58,7 @@ Enjoy! :)
 - You may need to change the CSS selectors for each field in the writeNewEmail function found at email-sender.js. Since my Gmail account is from Brazil some fields were in Portuguese, yours may be different. Please keep that in mind.
 - Whenever you start a new project make sure you reset the value at db/last-sent-email-index.txt to 0.
 - Misuse of this software may have legal consequences. Please follow [Gmail rules](https://support.google.com/a/answer/166852?hl=en) and use it at your own risk.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
