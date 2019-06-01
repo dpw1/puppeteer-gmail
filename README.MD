@@ -2,6 +2,8 @@
 
 Puppeteer Gmail is a simple tool to automate e-mail sending within the Gmail website.
 
+![Puppeteer Gmail](/demo/puppeteer-gmail-gif.gif)
+
 ## Features
 
 - It uses [Puppeteer Stealth](https://www.npmjs.com/package/puppeteer-extra-plugin-stealth) to avoid major issues;
