@@ -9,14 +9,14 @@ const emailList = fs
   .split("\n");
 
 /* Customizable variables */
-const subject = "Add your subject here!";
+const subject = "this is a test";
 const message =
   "Hello there,\n\rI hope you're having a great day.\n\rKind regards,\rJohn.";
 
 (async () => {
   puppeteer.use(pluginStealth());
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     timeout: 0
   });
 

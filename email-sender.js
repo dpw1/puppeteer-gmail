@@ -42,30 +42,32 @@ const emailSender = {
   writeNewEmail: async (page, { index, subject, email, message }) => {
     console.log(chalk.whiteBright.inverse(`${index}. Writing new e-mail...`));
 
-    const newEmailButton = `[jscontroller] > [id] > [class] > [id] div[style][role='button'][class]`;
-    const emailInput = `textarea[name = "to"]`;
-    const subjectInput = `input[name='subjectbox']`;
-    const messageInput = `[aria-label*='mensagem'][role=textbox]`;
-    const emailIsBeingSentSpan = `[aria-live="assertive"] > div > div:nth-child(2) > span > span:nth-child(1)`;
+    const $newEmailButton = `[jscontroller] > [id] > [class] > [id] div[style][role='button'][class]`;
+    const $emailInput = `textarea[name = "to"]`;
+    const $subjectInput = `input[name='subjectbox']`;
+    const $messageInput = `[aria-label*='mensagem'][role=textbox]`;
+    const $emailIsBeingSent = `[aria-live="assertive"] > div > div:nth-child(2) > span > span:nth-child(1)`;
 
-    await page.waitForSelector(newEmailButton);
-    await page.click(newEmailButton);
+    await page.waitForSelector($newEmailButton);
+    await page.click($newEmailButton);
 
-    await page.waitForSelector(emailInput);
-    await page.type(emailInput, email);
+    await page.waitForSelector($emailInput);
+    await page.type($emailInput, email);
     await page.waitFor(delayBetweenSteps);
 
-    await page.waitForSelector(subjectInput);
-    await page.type(subjectInput, subject);
+    await page.waitForSelector($subjectInput);
+    await page.type($subjectInput, subject);
     await page.waitFor(delayBetweenSteps);
 
-    await page.waitForSelector(messageInput);
-    await page.type(messageInput, message);
+    await page.waitForSelector($messageInput);
+    await page.type($messageInput, message);
     await page.waitFor(delayBetweenSteps);
 
     await page.keyboard.press("Tab");
+    await page.waitFor(delayBetweenSteps);
     await page.keyboard.press("Enter");
-    await page.waitForSelector(emailIsBeingSentSpan);
+    await page.waitFor(delayBetweenSteps);
+    await page.waitForSelector($emailIsBeingSent);
 
     try {
       emailSender.saveLastSentEmailIndex(index);
